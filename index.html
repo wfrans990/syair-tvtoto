@@ -16,6 +16,13 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+
+-webkit-touch-callout:none;
 }
 
 body{
@@ -203,24 +210,6 @@ color:white;
 line-height:1;
 
 text-shadow:0 4px 5px rgba(0,0,0,.7);
-}
-
-.colok-content span:nth-child(1){
-margin-left:18px;
-}
-
-.colok-content span:nth-child(2){
-margin-right:-18px;
-}
-
-.colok-content span:nth-child(3){
-margin-left:18px;
-margin-top:5px;
-}
-
-.colok-content span:nth-child(4){
-margin-right:-18px;
-margin-top:5px;
 }
 
 /* ================= BBFS ================= */
@@ -425,17 +414,14 @@ margin-bottom:-700px;
 <div class="preview" id="capture">
 
 <!-- DATE -->
-
 <div class="date-box" id="todayDate"></div>
 
 <!-- MARKET -->
-
 <div class="market">
 <img id="marketLogo" crossorigin="anonymous">
 </div>
 
 <!-- SHIO -->
-
 <div class="shio-circle">
 <img id="shioImage" crossorigin="anonymous">
 </div>
@@ -445,54 +431,40 @@ SHIO ULAR
 </div>
 
 <!-- COLOK -->
-
 <div class="colok">
-
 <div class="colok-content" id="colokBox">
 <span>7</span>
 <span>2</span>
 <span>1</span>
 <span>6</span>
 </div>
-
 </div>
 
 <!-- BBFS -->
-
 <div class="bbfs">
-
 <div class="box-content" id="bbfsBox">
 9927559
 </div>
-
 </div>
 
 <!-- ANGKA -->
-
 <div class="angka">
-
 <div class="angka-content" id="angkaMain">
 7 - 2 - 1 - 6 - 5
 </div>
-
 </div>
 
 <!-- SYAIR -->
-
 <div class="syair">
-
 <div class="syair-text" id="syairText">
 Bisik malam terdengar samar Jejak licin menuju pagar Kalau hoki sedang bergetar Rezeki datang tanpa sadar
 </div>
-
 </div>
 
 </div>
-
 </div>
 
-<!-- ================= PANEL ================= -->
-
+<!-- PANEL -->
 <div class="panel">
 
 <h2>GENERATOR TVTOTO</h2>
@@ -531,6 +503,65 @@ Bisik malam terdengar samar Jejak licin menuju pagar Kalau hoki sedang bergetar 
 
 <script>
 
+/* ================= PROTEKSI ================= */
+
+/* Disable Klik Kanan */
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+/* Disable Drag */
+document.addEventListener('dragstart', e => e.preventDefault());
+
+/* Disable Copy */
+document.addEventListener('copy', e => e.preventDefault());
+
+/* Disable Shortcut */
+document.onkeydown = function(e){
+
+if(
+e.keyCode == 123 ||
+(e.ctrlKey && e.shiftKey && e.keyCode == 73) ||
+(e.ctrlKey && e.shiftKey && e.keyCode == 74) ||
+(e.ctrlKey && e.keyCode == 85) ||
+(e.ctrlKey && e.shiftKey && e.keyCode == 67) ||
+(e.ctrlKey && e.keyCode == 83)
+){
+return false;
+}
+
+};
+
+/* Anti DevTools */
+setInterval(function(){
+
+const widthThreshold =
+window.outerWidth - window.innerWidth > 160;
+
+const heightThreshold =
+window.outerHeight - window.innerHeight > 160;
+
+if(widthThreshold || heightThreshold){
+
+document.body.innerHTML = `
+<div style="
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:#160000;
+color:white;
+font-size:32px;
+font-family:sans-serif;
+text-align:center;
+padding:20px;
+">
+ACCESS DENIED
+</div>
+`;
+
+}
+
+},1000);
+
 /* ================= PASARAN ================= */
 
 const marketLogoData={
@@ -551,171 +582,10 @@ const shioData={
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20ular.png",
 syair:[
 "Bisik malam terdengar samar Jejak licin menuju pagar Kalau hoki sedang bergetar Rezeki datang tanpa sadar",
-"Awan gelap mulai terbuka Datang petunjuk pembawa suka Siapa tenang siapa percaya Pintu emas akan terbuka",
-"Bintang redup tertutup awan Namun rezeki tetap bertahan Jangan takut hadapi tekanan Hoki datang penuh kejutan"
+"Awan gelap mulai terbuka Datang petunjuk pembawa suka Siapa tenang siapa percaya Pintu emas akan terbuka"
 ]
 },
 
-"SHIO ANJING":{
-img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20anjing.png",
-syair:[
-"Anjing setia pembawa hoki besar.",
-"Rezeki datang tanpa diduga.",
-"Keberuntungan mengikuti langkahmu.",
-"Angka emas muncul malam ini.",
-"Jalan hoki terbuka lebar.",
-"Rezeki deras dari arah timur.",
-"Angka panas mulai terlihat.",
-"Shio anjing penuh keberuntungan.",
-"Langkah pasti menuju kemenangan.",
-"Kesempatan besar segera datang."
-]
-},
-
-"SHIO HARIMAU":{
-img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20harimau.png",
-syair:[
-"Harimau kuat pembawa hoki.",
-"Rezeki datang tanpa hambatan.",
-"Angka hoki mulai terlihat.",
-"Langkah besar penuh hasil.",
-"Keberuntungan sedang tinggi.",
-"Kesempatan emas di depan mata.",
-"Shio harimau penuh energi.",
-"Jalan hoki semakin terbuka.",
-"Rezeki deras malam ini.",
-"Angka panas semakin dekat."
-]
-},
-
-"SHIO AYAM":{
-img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20ayam.png",
-syair:[
-"Ayam jago pembawa hoki.",
-"Rezeki cerah di pagi hari.",
-"Angka utama mulai muncul.",
-"Kesempatan emas jangan dilewatkan.",
-"Keberuntungan mendekat perlahan.",
-"Shio ayam sedang bersinar.",
-"Jalan hoki semakin jelas.",
-"Rezeki datang dari timur.",
-"Angka kuat muncul malam ini.",
-"Langkah pasti menuju kemenangan."
-]
-},
-
-"SHIO TIKUS":{
-img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20tikus.png",
-syair:[
-"Tikus cerdik pembawa hoki.",
-"Rezeki kecil jadi besar.",
-"Jalan hoki terbuka lebar.",
-"Angka emas mulai terlihat.",
-"Kesempatan besar segera datang.",
-"Shio tikus penuh kejutan.",
-"Rezeki datang dari utara.",
-"Langkah kecil hasil besar.",
-"Keberuntungan semakin dekat.",
-"Angka tajam muncul malam ini."
-]
-},
-
-"SHIO MONYET":{
-img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20monyet.png",
-syair:[
-"Monyet lincah pembawa hoki.",
-"Keberuntungan datang mendadak.",
-"Angka tajam mulai terlihat.",
-"Rezeki besar segera datang.",
-"Jalan hoki semakin terang.",
-"Shio monyet penuh energi.",
-"Kesempatan emas di depan mata.",
-"Langkah cepat hasil besar.",
-"Rezeki deras malam ini.",
-"Angka hoki semakin dekat."
-]
-},
-
-"SHIO KELINCI":{
-img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20kelinci.png",
-syair:[
-"Kelinci putih pembawa damai.",
-"Rezeki datang perlahan.",
-"Keberuntungan menyertai langkahmu.",
-"Angka hoki mulai muncul.",
-"Kesempatan emas semakin dekat.",
-"Shio kelinci sedang bersinar.",
-"Jalan hoki terbuka lebar.",
-"Rezeki besar segera datang.",
-"Angka panas terlihat jelas.",
-"Langkah tenang penuh hasil."
-]
-},
-
-"SHIO KAMBING":{
-img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20kambing.png",
-syair:[
-"Kambing hoki membawa rezeki.",
-"Langkah tenang penuh hasil.",
-"Rezeki datang dari timur.",
-"Angka emas mulai terlihat.",
-"Shio kambing penuh keberuntungan.",
-"Kesempatan besar segera tiba.",
-"Jalan hoki semakin terang.",
-"Rezeki deras malam ini.",
-"Keberuntungan semakin dekat.",
-"Angka panas muncul kembali."
-]
-},
-
-"SHIO BABI":{
-img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20babi.png",
-syair:[
-"Babi emas pembawa hoki.",
-"Rezeki besar datang tiba-tiba.",
-"Angka kuat muncul malam ini.",
-"Langkah santai hasil besar.",
-"Keberuntungan sedang tinggi.",
-"Kesempatan emas semakin dekat.",
-"Shio babi penuh keberuntungan.",
-"Jalan hoki terbuka lebar.",
-"Rezeki deras tanpa hambatan.",
-"Angka tajam semakin jelas."
-]
-},
-
-"SHIO KERBAU":{
-img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20kerbau.png",
-syair:[
-"Kerbau kuat pembawa rezeki.",
-"Langkah pasti menuju kemenangan.",
-"Keberuntungan datang perlahan.",
-"Angka hoki mulai muncul.",
-"Shio kerbau penuh energi.",
-"Kesempatan emas segera tiba.",
-"Jalan hoki semakin dekat.",
-"Rezeki besar malam ini.",
-"Angka panas terlihat jelas.",
-"Keberuntungan semakin tinggi."
-]
-},
-
-"SHIO KUDA":{
-img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20kuda.png",
-syair:[
-"Kuda berlari membawa hoki.",
-"Rezeki datang sangat cepat.",
-"Angka utama mulai muncul.",
-"Kesempatan emas di depan mata.",
-"Shio kuda penuh keberuntungan.",
-"Jalan hoki semakin terang.",
-"Rezeki besar segera datang.",
-"Langkah tajam penuh hasil.",
-"Keberuntungan semakin dekat.",
-"Angka panas malam ini."
-]
-},
-  
 "SHIO NAGA":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20nagaa.png",
 syair:[
