@@ -6,67 +6,770 @@
 
 <title>TVTOTO GENERATOR SHIO</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+<style>
 
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#170000;
+font-family:'Poppins',sans-serif;
+padding:20px;
+color:white;
+overflow-x:auto;
+}
+
+.container{
+max-width:1400px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:25px;
+align-items:center;
+}
+
+.preview-wrap{
+width:100%;
+overflow:auto;
+display:flex;
+justify-content:center;
+padding-bottom:10px;
+}
+
+/* ================= PREVIEW ================= */
+
+.preview{
+
+width:1254px;
+height:1254px;
+
+min-width:1254px;
+min-height:1254px;
+
+position:relative;
+overflow:hidden;
+flex-shrink:0;
+
+/* BACKGROUND PALING BAWAH */
+background:url('https://cdn.areabermain.club/assets/cdn/az1/2026/05/27/20260527/d9c10abdf8835158998c03f1c025db6f/layout-syair-tvtoto.jpg');
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+z-index:30;
+
+}
+
+/* ================= LAYER ================= */
+
+/* gambar */
+
+.market,
+.shio-circle{
+z-index:10;
+}
+
+/* tulisan */
+
+.date-box,
+.shio-name,
+.colok,
+.bbfs,
+.angka,
+.syair{
+z-index:20;
+}
+
+/* ================= TANGGAL ================= */
+
+.date-box{
+position:absolute;
+top:185px;
+left:50%;
+transform:translateX(-50%);
+
+width:310px;
+height:70px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:38px;
+font-family:'Cinzel',serif;
+font-weight:700;
+
+color:#ffd86b;
+
+letter-spacing:1px;
+
+text-shadow:0 2px 4px rgba(0,0,0,.5);
+}
+
+/* ================= PASARAN ================= */
+
+.market{
+position:absolute;
+top:275px;
+left:50%;
+transform:translateX(-50%);
+
+width:100%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.market img{
+max-width:420px;
+max-height:85px;
+object-fit:contain;
+
+position:relative;
+z-index:11;
+
+filter:drop-shadow(0 3px 5px rgba(0,0,0,.5));
+}
+
+/* ================= SHIO ================= */
+
+.shio-circle{
+position:absolute;
+top:433px;
+left:450px;
+
+width:345px;
+height:345px;
+
+border-radius:50%;
+overflow:hidden;
+}
+
+.shio-circle img{
+width:100%;
+height:100%;
+object-fit:cover;
+
+position:relative;
+z-index:11;
+}
+
+.shio-name{
+position:absolute;
+top:825px;
+left:50%;
+transform:translateX(-50%);
+
+width:420px;
+height:80px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:40px;
+font-family:'Cinzel',serif;
+font-weight:900;
+
+color:#ffd86b;
+
+letter-spacing:2px;
+
+text-shadow:0 3px 5px rgba(0,0,0,.5);
+}
+
+/* ================= COLOK ================= */
+
+.colok{
+position:absolute;
+top:558px;
+left:60px;
+
+width:280px;
+height:260px;
+}
+
+.colok-content{
+display:grid;
+grid-template-columns:1fr 1fr;
+
+row-gap:40px;
+
+font-size:84px;
+font-weight:900;
+
+text-align:center;
+color:white;
+
+line-height:1;
+}
+
+.colok-content span:nth-child(1){
+margin-left:18px;
+}
+
+.colok-content span:nth-child(2){
+margin-right:-18px;
+}
+
+.colok-content span:nth-child(3){
+margin-left:18px;
+margin-top:5px;
+}
+
+.colok-content span:nth-child(4){
+margin-right:-18px;
+margin-top:5px;
+}
+
+/* ================= BBFS ================= */
+
+.bbfs{
+position:absolute;
+top:566px;
+right:64px;
+
+width:290px;
+height:170px;
+}
+
+.box-content{
+font-size:65px;
+font-weight:900;
+
+text-align:center;
+
+color:white;
+
+letter-spacing:1px;
+
+text-shadow:0 3px 4px rgba(0,0,0,.5);
+}
+
+/* ================= ANGKA MAIN ================= */
+
+.angka{
+position:absolute;
+top:825px;
+right:55px;
+
+width:300px;
+height:120px;
+}
+
+.angka-content{
+font-size:34px;
+font-weight:700;
+
+text-align:center;
+
+color:white;
+
+text-shadow:0 2px 4px rgba(0,0,0,.5);
+}
+
+/* ================= SYAIR ================= */
+
+.syair{
+position:absolute;
+bottom:85px;
+left:50%;
+transform:translateX(-50%);
+
+width:600px;
+height:210px;
+
+padding:20px;
+}
+
+.syair-text{
+font-size:25px;
+font-weight:700;
+line-height:1.45;
+text-align:center;
+color:white;
+
+position:relative;
+z-index:21;
+
+text-shadow:0 3px 4px rgba(0,0,0,.5);
+
+height:100%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+word-wrap:break-word;
+overflow-wrap:break-word;
+text-wrap:wrap;
+}
+
+/* ================= PANEL ================= */
+
+.panel{
+width:100%;
+max-width:1254px;
+
+background:#470000;
+
+border:3px solid #ffb300;
+border-radius:20px;
+
+padding:25px;
+
+box-shadow:0 0 25px rgba(255,179,0,.25);
+}
+
+.panel h2{
+text-align:center;
+
+font-family:'Cinzel',serif;
+font-size:36px;
+
+margin-bottom:20px;
+
+color:#ffd86b;
+}
+
+.input-group{
+margin-bottom:18px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+
+font-weight:700;
+
+color:#ffd86b;
+}
+
+select{
+width:100%;
+
+padding:16px;
+
+border:none;
+border-radius:12px;
+
+background:#720000;
+
+color:white;
+
+font-size:16px;
+
+outline:none;
+}
+
+button{
+width:100%;
+
+padding:16px;
+
+border:none;
+border-radius:12px;
+
+margin-top:12px;
+
+cursor:pointer;
+
+font-size:16px;
+font-weight:700;
+
+transition:.3s;
+
+background:linear-gradient(to bottom,#ffd86b,#ff9800);
+
+color:#550000;
+}
+
+button:hover{
+transform:scale(1.02);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1300px){
+
+.preview{
+transform:scale(.75);
+transform-origin:top center;
+margin-bottom:-280px;
+}
+
+}
+
+@media(max-width:1000px){
+
+.preview{
+transform:scale(.55);
+margin-bottom:-500px;
+}
+
+}
+
+@media(max-width:700px){
+
+.preview{
+transform:scale(.42);
+margin-bottom:-700px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
+<!-- ================= PREVIEW ================= -->
+
 <div class="preview-wrap">
 
-<div class="preview gold-theme" id="capture">
+<div class="preview" id="capture">
 
-<img
-class="bg-layout"
-id="bgLayout"
-src="https://cdn.areabermain.club/assets/cdn/az1/2026/05/27/20260527/d9c10abdf8835158998c03f1c025db6f/layout-syair-tvtoto.jpg"
-crossorigin="anonymous"
->
-
-<div class="date-box" id="todayDate"></div>
+<div class="date-box" id="todayDate">
+26 MEI 2026
+</div>
 
 <div class="market">
-<img id="marketLogo" src="" crossorigin="anonymous">
+<img id="marketLogo" src="">
 </div>
 
 <div class="shio-circle">
-<img id="shioImage" crossorigin="anonymous">
+<img id="shioImage">
 </div>
 
-<div class="shio-name" id="shioName"></div>
+<div class="shio-name" id="shioName">
+SHIO ULAR
+</div>
 
 <div class="colok">
-<div class="colok-content" id="colokBox"></div>
+
+<div class="colok-content" id="colokBox">
+<span>7</span>
+<span>2</span>
+<span>1</span>
+<span>6</span>
+</div>
+
 </div>
 
 <div class="bbfs">
-<div class="box-content" id="bbfsBox"></div>
+
+<div class="box-content" id="bbfsBox">
+9927559
+</div>
+
 </div>
 
 <div class="angka">
-<div class="angka-content" id="angkaMain"></div>
+
+<div class="angka-content" id="angkaMain">
+7 - 2 - 1 - 6 - 5
+</div>
+
 </div>
 
 <div class="syair">
-<div class="syair-text" id="syairText"></div>
-</div>
 
-<div class="watermark">
-TVTOTO OFFICIAL
+<div class="syair-text" id="syairText">
+Bisik malam terdengar samar Jejak licin menuju pagar Kalau hoki sedang bergetar Rezeki datang tanpa sadar
 </div>
 
 </div>
 
 </div>
+
+</div>
+
+<!-- ================= PANEL ================= -->
 
 <div class="panel">
 
+<h2>GENERATOR TVTOTO</h2>
+
+<div class="input-group">
+
+<label>PILIH PASARAN</label>
+
+<select id="marketSelect">
+<option>BRUNEI</option>
+<option>NEVADA</option>
+<option>BANGKOK</option>
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>PILIH SHIO</label>
+
+<select id="shioSelect"></select>
+
+</div>
+
+<button onclick="generateAll()">
+🎲 ACAK SEMUA
+</button>
+
+<button onclick="downloadImage()">
+📥 DOWNLOAD PNG
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ================= LOGO PASARAN ================= */
+
+const marketLogoData={
+
+"NEVADA":"https://i.postimg.cc/xC1VJNLr/image-removebg-preview.png",
+
+"BRUNEI":"https://i.postimg.cc/nhqJ6JHp/brunei-logo-removebg-preview.png",
+
+"BANGKOK":"https://i.postimg.cc/KcsxTfq2/bangkokpools-logo-removebg-preview.png"
+
+};
+
+/* ================= DATA SHIO ================= */
+
+const shioData = {
+
+"SHIO ULAR":{
+img:"https://cdn.areabermain.club/assets/cdn/az1/2026/05/26/20260526/aac9e8c52a4f9741bcc34e27c6d3e9e4/shio-ular.png",
+syair:[
+"Bisik malam terdengar samar Jejak licin menuju pagar Kalau hoki sedang bergetar Rezeki datang tanpa sadar",
+"Awan gelap mulai terbuka Datang petunjuk pembawa suka Siapa tenang siapa percaya Pintu emas akan terbuka",
+"Bintang redup tertutup awan Namun rezeki tetap bertahan Jangan takut hadapi tekanan Hoki datang penuh kejutan"
+]
+},
+
+"SHIO NAGA":{
+img:"https://cdn.areabermain.club/assets/cdn/az1/2026/05/26/20260526/a986b3bf6db3251250a6ae21c8b01866/shio-naga.png",
+syair:[
+"Naga emas membawa hoki.",
+"Keberuntungan datang bertubi-tubi.",
+"Rezeki besar terbuka lebar."
+]
+}
+
+};
+
+/* ================= SHIO OPTION ================= */
+
+const shioSelect=document.getElementById("shioSelect");
+
+Object.keys(shioData).forEach(shio=>{
+
+const option=document.createElement("option");
+
+option.value=shio;
+option.innerText=shio;
+
+shioSelect.appendChild(option);
+
+});
+
+/* ================= TANGGAL ================= */
+
+function updateDate(){
+
+const now=new Date();
+
+const bulan=[
+"JANUARI","FEBRUARI","MARET","APRIL","MEI","JUNI",
+"JULI","AGUSTUS","SEPTEMBER","OKTOBER","NOVEMBER","DESEMBER"
+];
+
+const tanggal=
+now.getDate()+" "+
+bulan[now.getMonth()]+" "+
+now.getFullYear();
+
+document.getElementById("todayDate").innerText=tanggal;
+
+}
+
+/* ================= RANDOM ================= */
+
+function randomNumber(length){
+
+let result='';
+
+for(let i=0;i<length;i++){
+
+result += Math.floor(Math.random()*10);
+
+}
+
+return result;
+
+}
+
+function randomColok(){
+
+let arr=[];
+
+while(arr.length<4){
+
+let n=Math.floor(Math.random()*10);
+
+if(!arr.includes(n)){
+
+arr.push(n);
+
+}
+
+}
+
+return arr;
+
+}
+
+/* ================= GENERATE ================= */
+
+function generateAll(){
+
+const market=document.getElementById("marketSelect").value;
+
+const shio=shioSelect.value;
+
+/* ================= LOGO PASARAN ================= */
+
+const marketLogo=document.getElementById("marketLogo");
+
+if(marketLogoData[market]){
+
+marketLogo.src=marketLogoData[market];
+
+}else{
+
+marketLogo.src="";
+
+}
+
+/* ================= SHIO ================= */
+
+document.getElementById("shioName").innerText=shio;
+
+document.getElementById("shioImage").src=shioData[shio].img;
+
+/* ================= BBFS ================= */
+
+const bbfs=randomNumber(7);
+
+document.getElementById("bbfsBox").innerText=bbfs;
+
+/* ================= COLOK ================= */
+
+const angka=randomColok();
+
+document.getElementById("colokBox").innerHTML=`
+<span>${angka[0]}</span>
+<span>${angka[1]}</span>
+<span>${angka[2]}</span>
+<span>${angka[3]}</span>
+`;
+
+/* ================= ANGKA MAIN ================= */
+
+const angkaMain=[];
+
+while(angkaMain.length<5){
+
+let n=Math.floor(Math.random()*10);
+
+if(!angkaMain.includes(n)){
+
+angkaMain.push(n);
+
+}
+
+}
+
+document.getElementById("angkaMain").innerText=
+angkaMain.join(" - ");
+
+/* ================= SYAIR ================= */
+
+const syairList=shioData[shio].syair;
+
+const syairRandom=
+syairList[Math.floor(Math.random()*syairList.length)];
+
+document.getElementById("syairText").innerText=
+syairRandom;
+
+}
+
+/* ================= DOWNLOAD ================= */
+
+async function downloadImage(){
+
+const preview = document.querySelector("#capture");
+
+const oldTransform = preview.style.transform;
+const oldMargin = preview.style.marginBottom;
+
+preview.style.transform = "scale(1)";
+preview.style.marginBottom = "0px";
+
+await new Promise(r => setTimeout(r, 200));
+
+const canvas = await html2canvas(preview,{
+
+useCORS:true,
+allowTaint:true,
+backgroundColor:null,
+
+scale:2,
+
+width:1254,
+height:1254
+
+});
+
+preview.style.transform = oldTransform;
+preview.style.marginBottom = oldMargin;
+
+const link=document.createElement("a");
+
+link.download="tvtoto-shio.png";
+
+link.href=canvas.toDataURL("image/png");
+
+link.click();
+
+}
+
+/* ================= START ================= */
+
+updateDate();
+
+generateAll();
+
+document.getElementById("marketSelect")
+.addEventListener("change",generateAll);
+
+document.getElementById("shioSelect")
+.addEventListener("change",generateAll);
+
+</script>
+
+</body>
 </html>
