@@ -36,12 +36,16 @@ overflow-x:auto;
 /* ================= CONTAINER ================= */
 
 .container{
-max-width:1400px;
+max-width:1700px;
 margin:auto;
+
 display:flex;
-flex-direction:column;
+flex-direction:row;
+
+align-items:flex-start;
+justify-content:center;
+
 gap:25px;
-align-items:center;
 }
 
 /* ================= PREVIEW ================= */
@@ -295,8 +299,11 @@ overflow-wrap:break-word;
 /* ================= PANEL ================= */
 
 .panel{
-width:100%;
-max-width:1254px;
+width:350px;
+min-width:350px;
+
+position:sticky;
+top:20px;
 
 background:#460000;
 
@@ -398,6 +405,24 @@ margin-bottom:-500px;
 .preview{
 transform:scale(.42);
 margin-bottom:-700px;
+}
+
+}
+
+@media(max-width:1400px){
+
+.container{
+flex-direction:column-reverse;
+align-items:center;
+}
+
+.panel{
+width:100%;
+max-width:1254px;
+min-width:auto;
+
+position:relative;
+top:auto;
 }
 
 }
@@ -840,9 +865,20 @@ return arr;
 
 function generateAll(){
 
+/* PASARAN TETAP */
+
 const market=document.getElementById("marketSelect").value;
 
-const shio=shioSelect.value;
+/* ACAK SHIO */
+
+const shioKeys=Object.keys(shioData);
+
+const randomShio=
+shioKeys[Math.floor(Math.random()*shioKeys.length)];
+
+/* AUTO UPDATE SELECT SHIO */
+
+document.getElementById("shioSelect").value=randomShio;
 
 /* MARKET */
 
@@ -852,10 +888,10 @@ marketLogoData[market];
 /* SHIO */
 
 document.getElementById("shioName").innerText=
-shio;
+randomShio;
 
 document.getElementById("shioImage").src=
-shioData[shio].img;
+shioData[randomShio].img;
 
 /* BBFS */
 
@@ -894,7 +930,7 @@ angkaMain.join(" - ");
 
 /* SYAIR */
 
-const syairList=shioData[shio].syair;
+const syairList=shioData[randomShio].syair;
 
 const syairRandom=
 syairList[Math.floor(Math.random()*syairList.length)];
@@ -902,9 +938,7 @@ syairList[Math.floor(Math.random()*syairList.length)];
 document.getElementById("syairText").innerText=
 syairRandom;
 
-}
-
-/* ================= DOWNLOAD ================= */
+}/* ================= DOWNLOAD ================= */
 
 async function downloadImage(){
 
@@ -959,13 +993,28 @@ console.log(err);
 
 updateDate();
 
+updateMarketOnly();
+
 generateAll();
 
-document.getElementById("marketSelect")
-.addEventListener("change",generateAll);
+function updateMarketOnly(){
 
-document.getElementById("shioSelect")
-.addEventListener("change",generateAll);
+const market=document.getElementById("marketSelect").value;
+
+document.getElementById("marketLogo").src=
+marketLogoData[market];
+
+}
+
+document.getElementById("marketSelect")
+.addEventListener("change",function(){
+
+const market=document.getElementById("marketSelect").value;
+
+document.getElementById("marketLogo").src=
+marketLogoData[market];
+
+});
 
 </script>
 
