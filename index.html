@@ -968,12 +968,49 @@ height:1254
 
 });
 
+/* KEMBALIKAN SCALE */
+
 preview.style.transform=oldTransform;
 preview.style.marginBottom=oldMargin;
 
+/* ================= NAMA FILE ================= */
+
+const shioName=
+document.getElementById("shioName")
+.innerText
+.replace("SHIO ","Shio ");
+
+const now=new Date();
+
+const bulan=[
+"Januari",
+"Februari",
+"Maret",
+"April",
+"Mei",
+"Juni",
+"Juli",
+"Agustus",
+"September",
+"Oktober",
+"November",
+"Desember"
+];
+
+const tanggal=
+now.getDate()+" "+
+bulan[now.getMonth()];
+
+/* FINAL FILE NAME */
+
+const fileName=
+`${shioName} ${tanggal}.png`;
+
+/* DOWNLOAD */
+
 const link=document.createElement("a");
 
-link.download="tvtoto-shio.png";
+link.download=fileName;
 
 link.href=canvas.toDataURL("image/png");
 
