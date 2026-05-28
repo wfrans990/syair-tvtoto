@@ -221,7 +221,7 @@ text-shadow:0 4px 5px rgba(0,0,0,.7);
 .bbfs{
 position:absolute;
 top:566px;
-right:64px;
+right:63px;
 
 width:290px;
 height:170px;
@@ -244,7 +244,7 @@ text-shadow:0 4px 5px rgba(0,0,0,.7);
 
 .angka{
 position:absolute;
-top:825px;
+top:830px;
 right:55px;
 
 width:300px;
@@ -518,6 +518,10 @@ Bisik malam terdengar samar Jejak licin menuju pagar Kalau hoki sedang bergetar 
 🎲 ACAK SEMUA
 </button>
 
+<button onclick="randomSyairOnly()">
+📝 ACAK SYAIR
+</button>
+
 <button onclick="downloadImage()">
 📥 DOWNLOAD PNG
 </button>
@@ -530,16 +534,10 @@ Bisik malam terdengar samar Jejak licin menuju pagar Kalau hoki sedang bergetar 
 
 /* ================= PROTEKSI ================= */
 
-/* Disable Klik Kanan */
 document.addEventListener('contextmenu', e => e.preventDefault());
-
-/* Disable Drag */
 document.addEventListener('dragstart', e => e.preventDefault());
-
-/* Disable Copy */
 document.addEventListener('copy', e => e.preventDefault());
 
-/* Disable Shortcut */
 document.onkeydown = function(e){
 
 if(
@@ -554,38 +552,6 @@ return false;
 }
 
 };
-
-/* Anti DevTools */
-setInterval(function(){
-
-const widthThreshold =
-window.outerWidth - window.innerWidth > 160;
-
-const heightThreshold =
-window.outerHeight - window.innerHeight > 160;
-
-if(widthThreshold || heightThreshold){
-
-document.body.innerHTML = `
-<div style="
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-background:#160000;
-color:white;
-font-size:32px;
-font-family:sans-serif;
-text-align:center;
-padding:20px;
-">
-ACCESS DENIED
-</div>
-`;
-
-}
-
-},1000);
 
 /* ================= PASARAN ================= */
 
@@ -606,185 +572,192 @@ const shioData={
 "SHIO ULAR":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20ular.png",
 syair:[
-"Bisik malam terdengar samar Jejak licin menuju pagar Kalau hoki sedang bergetar Rezeki datang tanpa sadar",
-"Awan gelap mulai terbuka Datang petunjuk pembawa suka Siapa tenang siapa percaya Pintu emas akan terbuka",
-"Bintang redup tertutup awan Namun rezeki tetap bertahan Jangan takut hadapi tekanan Hoki datang penuh kejutan"
+"Ular emas melambangkan kecerdikan dan keberuntungan besar yang datang di waktu tak terduga.",
+"Gerakan tenang shio ular menyimpan tanda bahwa rezeki besar sedang mendekat perlahan.",
+"Shio ular membawa energi misterius yang sering membuka jalan hoki bagi orang yang percaya diri.",
+"Bisikan malam dan langkah sang ular menjadi pertanda baik untuk datangnya peluang baru.",
+"Ular hitam yang melintas diam-diam membawa kabar keberuntungan bagi hati yang tetap tenang.",
+"Keberuntungan shio ular sering hadir dari keputusan tepat yang diambil dengan penuh keyakinan.",
+"Sisik ular yang berkilau menjadi lambang hoki besar dan harapan yang mulai terbuka.",
+"Shio ular dikenal cerdas membaca keadaan sehingga rezeki mudah datang tanpa disangka.",
+"Ular putih membawa pertanda baik untuk perjalanan menuju keberhasilan dan kemakmuran.",
+"Dalam ketenangan shio ular tersimpan kekuatan besar yang mampu menarik keberuntungan datang lebih dekat."
 ]
 },
 
 "SHIO ANJING":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20anjing.png",
 syair:[
-"Anjing setia pembawa hoki besar.",
-"Rezeki datang tanpa diduga.",
-"Keberuntungan mengikuti langkahmu.",
-"Angka emas muncul malam ini.",
-"Jalan hoki terbuka lebar.",
-"Rezeki deras dari arah timur.",
-"Angka panas mulai terlihat.",
-"Shio anjing penuh keberuntungan.",
-"Langkah pasti menuju kemenangan.",
-"Kesempatan besar segera datang."
+"Anjing setia membawa keberuntungan bagi siapa saja yang tetap jujur dan tidak mudah menyerah.",
+"Langkah shio anjing menjadi pertanda baik bahwa rezeki sedang mendekat perlahan.",
+"Shio anjing dikenal penuh ketulusan sehingga keberuntungan sering datang tanpa diduga.",
+"Anjing penjaga malam membawa kabar baik untuk hati yang tetap percaya pada harapan.",
+"Keberuntungan shio anjing muncul dari kesabaran dan usaha yang terus dijaga.",
+"Suara anjing di malam hari dipercaya membawa tanda datangnya peluang baru.",
+"Shio anjing memiliki energi positif yang membuka jalan menuju keberhasilan dan hoki besar.",
+"Anjing hitam melambangkan perlindungan serta rezeki yang datang di waktu yang tepat.",
+"Kesetiaan dan keberanian shio anjing menjadi kunci datangnya keberuntungan besar.",
+"Dalam langkah sederhana shio anjing tersimpan harapan baik dan peluang rezeki yang semakin dekat."
 ]
 },
 
 "SHIO HARIMAU":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20harimau.png",
 syair:[
-"Harimau kuat pembawa hoki.",
-"Rezeki datang tanpa hambatan.",
-"Angka hoki mulai terlihat.",
-"Langkah besar penuh hasil.",
-"Keberuntungan sedang tinggi.",
-"Kesempatan emas di depan mata.",
-"Shio harimau penuh energi.",
-"Jalan hoki semakin terbuka.",
-"Rezeki deras malam ini.",
-"Angka panas semakin dekat."
+"Harimau perkasa membawa keberanian dan keberuntungan besar bagi yang tidak takut menghadapi tantangan.",
+"Langkah gagah shio harimau menjadi tanda datangnya rezeki dan peluang yang semakin terbuka.",
+"Shio harimau dikenal penuh semangat sehingga hoki sering datang di saat yang tidak terduga.",
+"Raungan harimau di malam hari dipercaya membawa kabar baik dan harapan baru.",
+"Harimau emas melambangkan kekuatan besar yang mampu menarik keberuntungan mendekat.",
+"Keberuntungan shio harimau hadir bagi mereka yang berani mengambil keputusan dengan yakin.",
+"Tatapan tajam sang harimau menjadi simbol kemenangan dan rezeki yang terus bertambah.",
+"Shio harimau membawa energi positif yang membuka jalan menuju kesuksesan dan kemakmuran.",
+"Harimau hitam melintas tenang membawa tanda bahwa hoki besar sedang mendekat perlahan.",
+"Dalam keberanian shio harimau tersimpan kekuatan besar yang membawa keberhasilan dan keberuntungan."
 ]
 },
 
 "SHIO AYAM":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20ayam.png",
 syair:[
-"Ayam jago pembawa hoki.",
-"Rezeki cerah di pagi hari.",
-"Angka utama mulai muncul.",
-"Kesempatan emas jangan dilewatkan.",
-"Keberuntungan mendekat perlahan.",
-"Shio ayam sedang bersinar.",
-"Jalan hoki semakin jelas.",
-"Rezeki datang dari timur.",
-"Angka kuat muncul malam ini.",
-"Langkah pasti menuju kemenangan."
+"Ayam jantan berkokok di pagi hari membawa tanda keberuntungan dan harapan baru yang cerah.",
+"Shio ayam dikenal penuh semangat sehingga rezeki sering datang di waktu yang tidak terduga.",
+"Langkah pasti sang ayam menjadi pertanda baik untuk datangnya hoki dan peluang besar.",
+"Ayam emas melambangkan kemakmuran serta keberhasilan yang semakin dekat menghampiri.",
+"Keberuntungan shio ayam hadir bagi mereka yang tetap percaya diri dan tidak mudah menyerah.",
+"Suara ayam di waktu subuh dipercaya membawa energi positif dan jalan rezeki yang terbuka.",
+"Shio ayam memiliki keberanian besar yang mampu menarik hoki dan keberhasilan sekaligus.",
+"Ayam putih datang membawa harapan baik serta kabar gembira untuk perjalanan ke depan.",
+"Dalam semangat shio ayam tersimpan kekuatan besar untuk meraih kemenangan dan kemakmuran.",
+"Ayam perkasa melangkah yakin membawa pertanda bahwa keberuntungan besar sedang mendekat."
 ]
 },
 
 "SHIO TIKUS":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20tikus.png",
 syair:[
-"Tikus cerdik pembawa hoki.",
-"Rezeki kecil jadi besar.",
-"Jalan hoki terbuka lebar.",
-"Angka emas mulai terlihat.",
-"Kesempatan besar segera datang.",
-"Shio tikus penuh kejutan.",
-"Rezeki datang dari utara.",
-"Langkah kecil hasil besar.",
-"Keberuntungan semakin dekat.",
-"Angka tajam muncul malam ini."
+"Tikus kecil bergerak lincah membawa keberuntungan bagi siapa saja yang cerdas melihat peluang.",
+"Shio tikus dikenal penuh kecerdikan sehingga rezeki sering datang tanpa disangka.",
+"Langkah cepat sang tikus menjadi pertanda baik bahwa hoki besar sedang mendekat.",
+"Tikus putih melambangkan harapan baru dan jalan keberhasilan yang mulai terbuka.",
+"Keberuntungan shio tikus hadir bagi mereka yang berani mengambil kesempatan dengan tepat.",
+"Gerakan diam sang tikus membawa tanda bahwa rezeki besar datang perlahan namun pasti.",
+"Shio tikus memiliki energi cerdas yang mampu membuka pintu hoki dan kemakmuran.",
+"Tikus malam berjalan tenang membawa kabar baik untuk hati yang tetap percaya diri.",
+"Dalam kecerdikan shio tikus tersimpan peluang besar menuju keberhasilan dan kemenangan.",
+"Tikus emas datang membawa harapan cerah serta keberuntungan yang semakin dekat menghampiri."
 ]
 },
 
 "SHIO MONYET":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20monyet.png",
 syair:[
-"Monyet lincah pembawa hoki.",
-"Keberuntungan datang mendadak.",
-"Angka tajam mulai terlihat.",
-"Rezeki besar segera datang.",
-"Jalan hoki semakin terang.",
-"Shio monyet penuh energi.",
-"Kesempatan emas di depan mata.",
-"Langkah cepat hasil besar.",
-"Rezeki deras malam ini.",
-"Angka hoki semakin dekat."
+"Monyet cerdik membawa keberuntungan besar bagi siapa saja yang pandai memanfaatkan peluang.",
+"Shio monyet dikenal penuh kecerdasan sehingga hoki sering datang di saat yang tidak terduga.",
+"Langkah lincah sang monyet menjadi tanda bahwa rezeki besar sedang mendekat perlahan.",
+"Monyet emas melambangkan keberhasilan dan jalan kemakmuran yang semakin terbuka.",
+"Keberuntungan shio monyet hadir bagi mereka yang tetap percaya diri dan tidak mudah menyerah.",
+"Gerakan cepat sang monyet membawa pertanda baik untuk datangnya peluang baru.",
+"Shio monyet memiliki energi positif yang mampu menarik hoki dan keberhasilan sekaligus.",
+"Monyet putih datang membawa harapan baik serta kabar gembira yang tak terduga.",
+"Dalam kecerdikan shio monyet tersimpan kekuatan besar untuk meraih kemenangan dan rezeki.",
+"Monyet perkasa melangkah penuh keyakinan membawa keberuntungan yang semakin dekat menghampiri."
 ]
 },
 
 "SHIO KELINCI":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20kelinci.png",
 syair:[
-"Kelinci putih pembawa damai.",
-"Rezeki datang perlahan.",
-"Keberuntungan menyertai langkahmu.",
-"Angka hoki mulai muncul.",
-"Kesempatan emas semakin dekat.",
-"Shio kelinci sedang bersinar.",
-"Jalan hoki terbuka lebar.",
-"Rezeki besar segera datang.",
-"Angka panas terlihat jelas.",
-"Langkah tenang penuh hasil."
+"Kelinci putih melompat membawa keberuntungan dan harapan baru yang penuh kebahagiaan.",
+"Shio kelinci dikenal lembut namun menyimpan hoki besar bagi yang tetap percaya diri.",
+"Langkah tenang sang kelinci menjadi pertanda baik bahwa rezeki sedang mendekat perlahan.",
+"Kelinci emas melambangkan kemakmuran dan peluang besar yang mulai terbuka lebar.",
+"Keberuntungan shio kelinci hadir bagi mereka yang sabar dan tidak mudah menyerah.",
+"Gerakan lincah sang kelinci membawa tanda datangnya kabar baik dan hoki baru.",
+"Shio kelinci memiliki energi damai yang mampu menarik keberhasilan dan rezeki.",
+"Kelinci malam berjalan pelan membawa harapan indah untuk perjalanan menuju kemenangan.",
+"Dalam kelembutan shio kelinci tersimpan kekuatan besar untuk meraih keberuntungan.",
+"Kelinci pembawa hoki datang membawa cahaya baru dan peluang yang semakin dekat."
 ]
 },
 
 "SHIO KAMBING":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20kambing.png",
 syair:[
-"Kambing hoki membawa rezeki.",
-"Langkah tenang penuh hasil.",
-"Rezeki datang dari timur.",
-"Angka emas mulai terlihat.",
-"Shio kambing penuh keberuntungan.",
-"Kesempatan besar segera tiba.",
-"Jalan hoki semakin terang.",
-"Rezeki deras malam ini.",
-"Keberuntungan semakin dekat.",
-"Angka panas muncul kembali."
+"Kambing gunung melangkah tenang membawa keberuntungan bagi hati yang penuh kesabaran.",
+"Shio kambing dikenal lembut namun memiliki jalan rezeki yang luas dan penuh harapan.",
+"Langkah pasti sang kambing menjadi pertanda baik bahwa hoki sedang mendekat perlahan.",
+"Kambing putih melambangkan kedamaian serta keberuntungan yang datang di waktu yang tepat.",
+"Keberuntungan shio kambing hadir bagi mereka yang tetap yakin dan tidak mudah menyerah.",
+"Shio kambing membawa energi positif yang membuka jalan menuju keberhasilan dan kemakmuran.",
+"Kambing emas datang membawa kabar baik serta peluang besar yang mulai terbuka.",
+"Dalam ketenangan shio kambing tersimpan kekuatan besar untuk menarik rezeki dan hoki.",
+"Suara lembut sang kambing menjadi tanda hadirnya harapan baru dan keberuntungan.",
+"Shio kambing melangkah penuh keyakinan membawa rezeki yang semakin dekat menghampiri."
 ]
 },
 
 "SHIO BABI":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20babi.png",
 syair:[
-"Babi emas pembawa hoki.",
-"Rezeki besar datang tiba-tiba.",
-"Angka kuat muncul malam ini.",
-"Langkah santai hasil besar.",
-"Keberuntungan sedang tinggi.",
-"Kesempatan emas semakin dekat.",
-"Shio babi penuh keberuntungan.",
-"Jalan hoki terbuka lebar.",
-"Rezeki deras tanpa hambatan.",
-"Angka tajam semakin jelas."
+"Babi emas datang membawa keberuntungan besar bagi siapa saja yang tetap percaya pada harapan.",
+"Langkah tenang shio babi menjadi tanda rezeki perlahan mendekat tanpa disadari.",
+"Shio babi dikenal penuh keberuntungan, terutama bagi hati yang sabar dan tidak mudah menyerah.",
+"Malam yang sunyi membawa bisikan hoki untuk shio babi yang sedang menanti kesempatan.",
+"Babi putih melambangkan kemakmuran dan jalan rezeki yang terbuka semakin lebar.",
+"Keberuntungan shio babi sering datang dari hal sederhana yang sebelumnya tidak pernah diduga.",
+"Senyum dan keyakinan menjadi kunci datangnya hoki besar bagi pemilik shio babi.",
+"Shio babi membawa energi positif yang membuat perjalanan menuju keberhasilan terasa lebih mudah.",
+"Rezeki yang datang untuk shio babi ibarat air mengalir deras tanpa hambatan.",
+"Babi keberuntungan hadir membawa harapan baru serta peluang besar yang siap menghampiri."
 ]
 },
 
 "SHIO KERBAU":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20kerbau.png",
 syair:[
-"Kerbau kuat pembawa rezeki.",
-"Langkah pasti menuju kemenangan.",
-"Keberuntungan datang perlahan.",
-"Angka hoki mulai muncul.",
-"Shio kerbau penuh energi.",
-"Kesempatan emas segera tiba.",
-"Jalan hoki semakin dekat.",
-"Rezeki besar malam ini.",
-"Angka panas terlihat jelas.",
-"Keberuntungan semakin tinggi."
+"Kerbau kuat melangkah pelan, rezeki datang bagi yang sabar dan tidak mudah menyerah.",
+"Di balik tenangnya sang kerbau, tersimpan keberuntungan besar yang siap menghampiri.",
+"Kerbau di sawah membawa harapan, siapa tekun akan menemukan jalan kemenangan.",
+"Langkah pasti sang kerbau menjadi tanda bahwa hoki besar sedang mendekat perlahan.",
+"Kerbau hitam menembus malam, membawa kabar baik untuk hati yang tetap tenang.",
+"Rezeki ibarat kerbau kuat, tidak datang tergesa namun hasilnya penuh manfaat.",
+"Kerbau tua penjaga ladang memberi pesan agar tetap yakin pada usaha sendiri.",
+"Angin pagi dan langkah kerbau menjadi pertanda baik untuk keberuntungan hari ini.",
+"Kerbau perkasa membawa semangat baru, membuka jalan rezeki tanpa ragu.",
+"Dalam diam sang kerbau tersimpan kekuatan besar yang membawa hoki dan keberhasilan."
 ]
 },
 
 "SHIO KUDA":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20kuda.png",
 syair:[
-"Kuda berlari membawa hoki.",
-"Rezeki datang sangat cepat.",
-"Angka utama mulai muncul.",
-"Kesempatan emas di depan mata.",
-"Shio kuda penuh keberuntungan.",
-"Jalan hoki semakin terang.",
-"Rezeki besar segera datang.",
-"Langkah tajam penuh hasil.",
-"Keberuntungan semakin dekat.",
-"Angka panas malam ini."
+"Kuda perkasa berlari membawa keberuntungan besar bagi siapa saja yang berani melangkah maju.",
+"Shio kuda dikenal penuh semangat sehingga rezeki sering datang di waktu yang tidak terduga.",
+"Langkah cepat sang kuda menjadi pertanda baik bahwa hoki besar sedang mendekat.",
+"Kuda putih melambangkan harapan baru dan jalan menuju keberhasilan yang semakin terbuka.",
+"Keberuntungan shio kuda hadir bagi mereka yang percaya diri dan tidak mudah menyerah.",
+"Derap langkah sang kuda membawa energi positif dan peluang besar menuju kemenangan.",
+"Shio kuda memiliki kekuatan besar untuk menarik rezeki dan keberuntungan sekaligus.",
+"Kuda emas datang membawa kabar baik serta harapan cerah untuk masa depan.",
+"Dalam semangat shio kuda tersimpan keberanian besar untuk meraih kesuksesan dan hoki.",
+"Kuda malam berlari tenang membawa pertanda bahwa keberuntungan besar semakin dekat menghampiri."
 ]
 },
-  
+
 "SHIO NAGA":{
 img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20nagaa.png",
 syair:[
-"Naga emas membawa hoki.",
-"Keberuntungan datang bertubi-tubi.",
-"Rezeki besar terbuka lebar.",
-"Angka panas mulai muncul.",
-"Jalan hoki semakin terang.",
-"Shio naga penuh kekuatan.",
-"Kesempatan besar sudah dekat.",
-"Rezeki deras tanpa hambatan.",
-"Langkah pasti menuju hoki.",
-"Keberuntungan semakin tinggi."
+"Naga emas terbang tinggi membawa keberuntungan besar dan harapan yang semakin terang.",
+"Shio naga dikenal penuh wibawa sehingga rezeki sering datang di saat yang tidak terduga.",
+"Langkah kuat sang naga menjadi pertanda baik bahwa hoki besar sedang mendekat perlahan.",
+"Naga merah melambangkan kekuatan, keberanian, dan jalan menuju kemakmuran yang terbuka.",
+"Keberuntungan shio naga hadir bagi mereka yang yakin pada usaha dan tidak mudah menyerah.",
+"Shio naga membawa energi besar yang mampu menarik rezeki dan keberhasilan sekaligus.",
+"Naga langit datang membawa kabar baik serta peluang emas yang mulai terlihat jelas.",
+"Dalam kekuatan shio naga tersimpan harapan besar untuk meraih kemenangan dan kemakmuran.",
+"Naga hitam melintas di malam hari membawa tanda datangnya hoki dan peluang baru.",
+"Shio naga melangkah penuh keyakinan membawa keberuntungan besar yang semakin dekat menghampiri."
 ]
 }
 
@@ -865,27 +838,17 @@ return arr;
 
 function generateAll(){
 
-/* PASARAN TETAP */
-
 const market=document.getElementById("marketSelect").value;
-
-/* ACAK SHIO */
 
 const shioKeys=Object.keys(shioData);
 
 const randomShio=
 shioKeys[Math.floor(Math.random()*shioKeys.length)];
 
-/* AUTO UPDATE SELECT SHIO */
-
 document.getElementById("shioSelect").value=randomShio;
-
-/* MARKET */
 
 document.getElementById("marketLogo").src=
 marketLogoData[market];
-
-/* SHIO */
 
 document.getElementById("shioName").innerText=
 randomShio;
@@ -893,12 +856,8 @@ randomShio;
 document.getElementById("shioImage").src=
 shioData[randomShio].img;
 
-/* BBFS */
-
 document.getElementById("bbfsBox").innerText=
 randomNumber(7);
-
-/* COLOK */
 
 const angka=randomColok();
 
@@ -908,8 +867,6 @@ document.getElementById("colokBox").innerHTML=`
 <span>${angka[2]}</span>
 <span>${angka[3]}</span>
 `;
-
-/* ANGKA MAIN */
 
 const angkaMain=[];
 
@@ -928,8 +885,6 @@ angkaMain.push(n);
 document.getElementById("angkaMain").innerText=
 angkaMain.join(" - ");
 
-/* SYAIR */
-
 const syairList=shioData[randomShio].syair;
 
 const syairRandom=
@@ -938,7 +893,27 @@ syairList[Math.floor(Math.random()*syairList.length)];
 document.getElementById("syairText").innerText=
 syairRandom;
 
-}/* ================= DOWNLOAD ================= */
+}
+
+/* ================= ACAK SYAIR ================= */
+
+function randomSyairOnly(){
+
+const currentShio =
+document.getElementById("shioSelect").value;
+
+const syairList =
+shioData[currentShio].syair;
+
+const syairRandom =
+syairList[Math.floor(Math.random()*syairList.length)];
+
+document.getElementById("syairText").innerText =
+syairRandom;
+
+}
+
+/* ================= DOWNLOAD ================= */
 
 async function downloadImage(){
 
@@ -968,12 +943,8 @@ height:1254
 
 });
 
-/* KEMBALIKAN SCALE */
-
 preview.style.transform=oldTransform;
 preview.style.marginBottom=oldMargin;
-
-/* ================= NAMA FILE ================= */
 
 const shioName=
 document.getElementById("shioName")
@@ -1001,12 +972,8 @@ const tanggal=
 now.getDate()+" "+
 bulan[now.getMonth()];
 
-/* FINAL FILE NAME */
-
 const fileName=
 `${shioName} ${tanggal}.png`;
-
-/* DOWNLOAD */
 
 const link=document.createElement("a");
 
@@ -1050,6 +1017,36 @@ const market=document.getElementById("marketSelect").value;
 
 document.getElementById("marketLogo").src=
 marketLogoData[market];
+
+});
+
+/* ================= PILIH SHIO TANPA ACAK ANGKA ================= */
+
+document.getElementById("shioSelect")
+.addEventListener("change",function(){
+
+const selectedShio=this.value;
+
+/* UPDATE NAMA SHIO */
+
+document.getElementById("shioName").innerText=
+selectedShio;
+
+/* UPDATE GAMBAR SHIO */
+
+document.getElementById("shioImage").src=
+shioData[selectedShio].img;
+
+/* UPDATE SYAIR */
+
+const syairList=
+shioData[selectedShio].syair;
+
+const syairRandom=
+syairList[Math.floor(Math.random()*syairList.length)];
+
+document.getElementById("syairText").innerText=
+syairRandom;
 
 });
 
