@@ -70,7 +70,7 @@ position:relative;
 overflow:hidden;
 flex-shrink:0;
 
-/* BACKGROUND */
+/* DEFAULT TEMPLATE */
 background-image:url('https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/Layout%20Syair%20TVTOTO.png');
 
 background-size:cover;
@@ -514,6 +514,24 @@ Bisik malam terdengar samar Jejak licin menuju pagar Kalau hoki sedang bergetar 
 
 </div>
 
+<div class="input-group">
+
+<label>PILIH TEMPLATE</label>
+
+<select id="templateSelect">
+
+<option value="lentera">
+LENTERA
+</option>
+
+<option value="naga">
+NAGA
+</option>
+
+</select>
+
+</div>
+
 <button onclick="generateAll()">
 🎲 ACAK SEMUA
 </button>
@@ -550,6 +568,18 @@ e.keyCode == 123 ||
 ){
 return false;
 }
+
+};
+
+/* ================= TEMPLATE ================= */
+
+const templateBackground={
+
+"lentera":
+"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/Layout%20Syair%20TVTOTO.png",
+
+"naga":
+"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/ChatGPT%20Image%20May%2028%2C%202026%2C%2004_35_47%20PM.png"
 
 };
 
@@ -1020,24 +1050,18 @@ marketLogoData[market];
 
 });
 
-/* ================= PILIH SHIO TANPA ACAK ANGKA ================= */
+/* ================= PILIH SHIO ================= */
 
 document.getElementById("shioSelect")
 .addEventListener("change",function(){
 
 const selectedShio=this.value;
 
-/* UPDATE NAMA SHIO */
-
 document.getElementById("shioName").innerText=
 selectedShio;
 
-/* UPDATE GAMBAR SHIO */
-
 document.getElementById("shioImage").src=
 shioData[selectedShio].img;
-
-/* UPDATE SYAIR */
 
 const syairList=
 shioData[selectedShio].syair;
@@ -1047,6 +1071,18 @@ syairList[Math.floor(Math.random()*syairList.length)];
 
 document.getElementById("syairText").innerText=
 syairRandom;
+
+});
+
+/* ================= GANTI TEMPLATE ================= */
+
+document.getElementById("templateSelect")
+.addEventListener("change",function(){
+
+const selectedTemplate=this.value;
+
+document.querySelector(".preview").style.backgroundImage=
+`url('${templateBackground[selectedTemplate]}')`;
 
 });
 
