@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TVTOTO GENERATOR SHIO</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none;
+
+-webkit-touch-callout:none;
+}
+
+body{
+background:#160000;
+font-family:'Poppins',sans-serif;
+padding:20px;
+color:white;
+overflow-x:auto;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+max-width:1700px;
+margin:auto;
+
+display:flex;
+flex-direction:row;
+
+align-items:flex-start;
+justify-content:center;
+
+gap:25px;
+}
+
+/* ================= PREVIEW ================= */
+
+.preview-wrap{
+width:100%;
+overflow:auto;
+display:flex;
+justify-content:center;
+padding-bottom:10px;
+}
+
+.preview{
+
+width:1254px;
+height:1254px;
+
+min-width:1254px;
+min-height:1254px;
+
+position:relative;
+overflow:hidden;
+flex-shrink:0;
+
+/* DEFAULT TEMPLATE */
+background-image:url('https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/Layout%20Syair%20TVTOTO.png');
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+}
+
+/* ================= LAYER ================= */
+
+.market,
+.shio-circle{
+z-index:10;
+}
+
+.date-box,
+.shio-name,
+.colok,
+.bbfs,
+.angka,
+.syair{
+z-index:20;
+}
+
+/* ================= DATE ================= */
+
+.date-box{
+position:absolute;
+top:185px;
+left:50%;
+transform:translateX(-50%);
+
+width:310px;
+height:70px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:38px;
+font-family:'Cinzel',serif;
+font-weight:700;
+
+color:#ffd86b;
+
+letter-spacing:1px;
+
+text-shadow:0 2px 5px rgba(0,0,0,.7);
+}
+
+/* ================= MARKET ================= */
+
+.market{
+position:absolute;
+top:275px;
+left:50%;
+transform:translateX(-50%);
+
+width:100%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.market img{
+max-width:420px;
+max-height:90px;
+object-fit:contain;
+
+filter:drop-shadow(0 4px 5px rgba(0,0,0,.6));
+}
+
+/* ================= SHIO ================= */
+
+.shio-circle{
+position:absolute;
+top:433px;
+left:450px;
+
+width:345px;
+height:345px;
+
+border-radius:50%;
+overflow:hidden;
+}
+
+.shio-circle img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.shio-name{
+position:absolute;
+top:825px;
+left:50%;
+transform:translateX(-50%);
+
+width:420px;
+height:80px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:40px;
+font-family:'Cinzel',serif;
+font-weight:900;
+
+color:#ffd86b;
+
+letter-spacing:2px;
+
+text-shadow:0 3px 5px rgba(0,0,0,.7);
+}
+
+/* ================= COLOK ================= */
+
+.colok{
+position:absolute;
+top:558px;
+left:60px;
+
+width:280px;
+height:260px;
+}
+
+.colok-content{
+display:grid;
+grid-template-columns:1fr 1fr;
+
+row-gap:40px;
+
+font-size:84px;
+font-weight:900;
+
+text-align:center;
+color:white;
+
+line-height:1;
+
+text-shadow:0 4px 5px rgba(0,0,0,.7);
+}
+
+/* ================= BBFS ================= */
+
+.bbfs{
+position:absolute;
+top:566px;
+right:63px;
+
+width:290px;
+height:170px;
+}
+
+.box-content{
+font-size:65px;
+font-weight:900;
+
+text-align:center;
+
+color:white;
+
+letter-spacing:1px;
+
+text-shadow:0 4px 5px rgba(0,0,0,.7);
+}
+
+/* ================= ANGKA MAIN ================= */
+
+.angka{
+position:absolute;
+top:830px;
+right:55px;
+
+width:300px;
+height:120px;
+}
+
+.angka-content{
+font-size:34px;
+font-weight:700;
+
+text-align:center;
+
+color:white;
+
+text-shadow:0 3px 5px rgba(0,0,0,.7);
+}
+
+/* ================= SYAIR ================= */
+
+.syair{
+position:absolute;
+bottom:85px;
+left:50%;
+transform:translateX(-50%);
+
+width:600px;
+height:210px;
+
+padding:20px;
+}
+
+.syair-text{
+font-size:25px;
+font-weight:700;
+line-height:1.45;
+
+text-align:center;
+color:white;
+
+text-shadow:0 3px 5px rgba(0,0,0,.7);
+
+height:100%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+word-wrap:break-word;
+overflow-wrap:break-word;
+}
+
+
+/* ================= BRAND SWITCHER ================= */
+
+.brand-switcher{
+display:flex;
+gap:12px;
+margin-bottom:20px;
+}
+
+.brand-btn{
+flex:1;
+height:70px;
+padding:8px;
+margin:0;
+background:#5a0000;
+border:2px solid #8d5f00;
+border-radius:12px;
+cursor:pointer;
+transition:.3s;
+}
+
+.brand-btn img{
+width:100%;
+height:100%;
+object-fit:contain;
+}
+
+.brand-btn.active{
+border:2px solid #ffd86b;
+box-shadow:0 0 15px rgba(255,216,107,.5);
+background:#7a0000;
+}
+
+
+
+/* ================= BRAND LOGO PREVIEW ================= */
+
+.brand-logo-preview{
+position:absolute;
+top:25px;
+left:50%;
+transform:translateX(-50%);
+width:420px;
+height:120px;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:30;
+}
+
+.brand-logo-preview img{
+max-width:100%;
+max-height:100%;
+object-fit:contain;
+filter:drop-shadow(0 4px 8px rgba(0,0,0,.6));
+}
+
+
+/* ================= PANEL ================= */
+
+.panel{
+width:350px;
+min-width:350px;
+
+position:sticky;
+top:20px;
+
+background:#460000;
+
+border:3px solid #ffb300;
+border-radius:20px;
+
+padding:25px;
+
+box-shadow:0 0 25px rgba(255,179,0,.25);
+}
+
+.panel h2{
+text-align:center;
+
+font-family:'Cinzel',serif;
+font-size:36px;
+
+margin-bottom:20px;
+
+color:#ffd86b;
+}
+
+.input-group{
+margin-bottom:18px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+
+font-weight:700;
+color:#ffd86b;
+}
+
+select{
+width:100%;
+
+padding:16px;
+
+border:none;
+border-radius:12px;
+
+background:#720000;
+color:white;
+
+font-size:16px;
+outline:none;
+}
+
+button{
+width:100%;
+
+padding:16px;
+
+border:none;
+border-radius:12px;
+
+margin-top:12px;
+
+cursor:pointer;
+
+font-size:16px;
+font-weight:700;
+
+transition:.3s;
+
+background:linear-gradient(to bottom,#ffd86b,#ff9800);
+
+color:#550000;
+}
+
+button:hover{
+transform:scale(1.02);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1300px){
+
+.preview{
+transform:scale(.75);
+transform-origin:top center;
+margin-bottom:-280px;
+}
+
+}
+
+@media(max-width:1000px){
+
+.preview{
+transform:scale(.55);
+margin-bottom:-500px;
+}
+
+}
+
+@media(max-width:700px){
+
+.preview{
+transform:scale(.42);
+margin-bottom:-700px;
+}
+
+}
+
+@media(max-width:1400px){
+
+.container{
+flex-direction:column-reverse;
+align-items:center;
+}
+
+.panel{
+width:100%;
+max-width:1254px;
+min-width:auto;
+
+position:relative;
+top:auto;
+}
+
+.shio-circle{
+border-radius:50%;
+overflow:hidden;
+border:8px solid #d4af37;
+box-shadow:
+0 0 20px rgba(255,215,0,.6),
+0 0 40px rgba(255,215,0,.3);
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="preview-wrap">
+
+<div class="preview" id="capture">
+
+
+<!-- BRAND LOGO -->
+<div class="brand-logo-preview">
+<img id="brandLogoPreview" src="https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/logo%20tvtoto.png" crossorigin="anonymous">
+</div>
+
+<!-- DATE -->
+
+<div class="date-box" id="todayDate"></div>
+
+<!-- MARKET -->
+<div class="market">
+<img id="marketLogo" crossorigin="anonymous">
+</div>
+
+<!-- SHIO -->
+<div class="shio-circle">
+<img id="shioImage" crossorigin="anonymous">
+</div>
+
+<div class="shio-name" id="shioName">
+SHIO ULAR
+</div>
+
+<!-- COLOK -->
+<div class="colok">
+<div class="colok-content" id="colokBox">
+<span>7</span>
+<span>2</span>
+<span>1</span>
+<span>6</span>
+</div>
+</div>
+
+<!-- BBFS -->
+<div class="bbfs">
+<div class="box-content" id="bbfsBox">
+9927559
+</div>
+</div>
+
+<!-- ANGKA -->
+<div class="angka">
+<div class="angka-content" id="angkaMain">
+7 - 2 - 1 - 6 - 5
+</div>
+</div>
+
+<!-- SYAIR -->
+<div class="syair">
+<div class="syair-text" id="syairText">
+Bisik malam terdengar samar Jejak licin menuju pagar Kalau hoki sedang bergetar Rezeki datang tanpa sadar
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- PANEL -->
+<div class="panel">
+
+
+<div class="brand-switcher">
+
+<button class="brand-btn active" id="btnTVTOTO" onclick="switchBrand('tvtoto')">
+<img src="https://tvtoto32264.com/resources/images/logo.png" alt="TVTOTO">
+</button>
+
+<button class="brand-btn" id="btnFATCAI" onclick="switchBrand('fatcai99')">
+<img src="https://cdn.areabermain.club/assets/cdn/az8/2025/12/21/20251221/3efa72027f4b37ceb0e92d3df7bd7144/logo-fatcai99-1.png" alt="FATCAI99">
+</button>
+
+</div>
+
+
+<h2>GENERATOR SYAIR TVTOTO</h2>
+
+<div class="input-group">
+
+<label>PILIH PASARAN</label>
+
+<select id="marketSelect">
+<option>BRUNEI</option>
+<option>NEVADA</option>
+<option>BANGKOK</option>
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>PILIH SHIO</label>
+
+<select id="shioSelect"></select>
+
+</div>
+<button onclick="generateAll()">
+🎲 ACAK SEMUA
+</button>
+
+<button onclick="randomSyairOnly()">
+📝 ACAK SYAIR
+</button>
+
+<button onclick="downloadImage()">
+📥 DOWNLOAD PNG
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* ================= PROTEKSI ================= */
+
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('dragstart', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+
+document.onkeydown = function(e){
+
+if(
+e.keyCode == 123 ||
+(e.ctrlKey && e.shiftKey && e.keyCode == 73) ||
+(e.ctrlKey && e.shiftKey && e.keyCode == 74) ||
+(e.ctrlKey && e.keyCode == 85) ||
+(e.ctrlKey && e.shiftKey && e.keyCode == 67) ||
+(e.ctrlKey && e.keyCode == 83)
+){
+return false;
+}
+
+};
+
+/* ================= TEMPLATE ================= */
+
+
+/* ================= BRAND ================= */
+
+const brandData={
+
+tvtoto:{
+title:"GENERATOR SYAIR TVTOTO",
+template:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/layout%20tvtoto%20tanpa%20logo.png",
+logo:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/logo%20tvtoto.png"
+},
+
+fatcai99:{
+title:"GENERATOR SYAIR FATCAI99",
+template:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/fat.png",
+logo:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/logo-fatcai99-1.png"
+}
+
+};
+
+function switchBrand(brand){
+
+window.currentBrand = brand;
+
+document.getElementById("btnTVTOTO").classList.remove("active");
+document.getElementById("btnFATCAI").classList.remove("active");
+
+if(brand==="tvtoto"){
+document.getElementById("btnTVTOTO").classList.add("active");
+}else{
+document.getElementById("btnFATCAI").classList.add("active");
+}
+
+document.querySelector(".panel h2").innerText=brandData[brand].title;
+
+document.querySelector(".preview").style.backgroundImage=
+`url('${brandData[brand].template}')`;
+
+document.getElementById("brandLogoPreview").src =
+brandData[brand].logo;
+
+if(brand==="fatcai99"){
+
+document.body.style.background="#1f1600";
+
+
+
+document.querySelector(".shio-circle").style.border="8px solid #d4af37";
+document.querySelector(".shio-circle").style.boxShadow="0 0 25px rgba(255,215,0,.6)";
+
+document.getElementById("marketLogo").style.filter="drop-shadow(0 0 12px rgba(255,215,0,.7))";
+
+}else{
+
+document.body.style.background="#160000";
+
+
+
+document.querySelector(".shio-circle").style.border="none";
+document.querySelector(".shio-circle").style.boxShadow="none";
+
+document.getElementById("marketLogo").style.filter="drop-shadow(0 4px 5px rgba(0,0,0,.6))";
+}
+
+}
+
+
+const templateBackground={
+
+"lentera":
+"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/Layout%20Syair%20TVTOTO.png",
+
+"naga":
+"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/ChatGPT%20Image%20May%2028%2C%202026%2C%2004_35_47%20PM.png"
+
+};
+
+/* ================= PASARAN ================= */
+
+const marketLogoData={
+
+"NEVADA":"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/image-removebg-preview.png",
+
+"BANGKOK":"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/bangkokpools-logo-removebg-preview.png",
+
+"BRUNEI":"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/brunei-logo-removebg-preview.png"
+
+};
+
+/* ================= SHIO ================= */
+
+const shioData={
+
+"SHIO ULAR":{
+img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20ular.png",
+syair:[
+"Ular emas melambangkan kecerdikan dan keberuntungan besar yang datang di waktu tak terduga.",
+"Gerakan tenang shio ular menyimpan tanda bahwa rezeki besar sedang mendekat perlahan.",
+"Shio ular membawa energi misterius yang sering membuka jalan hoki bagi orang yang percaya diri.",
+"Bisikan malam dan langkah sang ular menjadi pertanda baik untuk datangnya peluang baru.",
+"Ular hitam yang melintas diam-diam membawa kabar keberuntungan bagi hati yang tetap tenang.",
+"Keberuntungan shio ular sering hadir dari keputusan tepat yang diambil dengan penuh keyakinan.",
+"Sisik ular yang berkilau menjadi lambang hoki besar dan harapan yang mulai terbuka.",
+"Shio ular dikenal cerdas membaca keadaan sehingga rezeki mudah datang tanpa disangka.",
+"Ular putih membawa pertanda baik untuk perjalanan menuju keberhasilan dan kemakmuran.",
+"Dalam ketenangan shio ular tersimpan kekuatan besar yang mampu menarik keberuntungan datang lebih dekat."
+]
+},
+
+"SHIO ANJING":{
+img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20anjing.png",
+syair:[
+"Anjing setia membawa keberuntungan bagi siapa saja yang tetap jujur dan tidak mudah menyerah.",
+"Langkah shio anjing menjadi pertanda baik bahwa rezeki sedang mendekat perlahan.",
+"Shio anjing dikenal penuh ketulusan sehingga keberuntungan sering datang tanpa diduga.",
+"Anjing penjaga malam membawa kabar baik untuk hati yang tetap percaya pada harapan.",
+"Keberuntungan shio anjing muncul dari kesabaran dan usaha yang terus dijaga.",
+"Suara anjing di malam hari dipercaya membawa tanda datangnya peluang baru.",
+"Shio anjing memiliki energi positif yang membuka jalan menuju keberhasilan dan hoki besar.",
+"Anjing hitam melambangkan perlindungan serta rezeki yang datang di waktu yang tepat.",
+"Kesetiaan dan keberanian shio anjing menjadi kunci datangnya keberuntungan besar.",
+"Dalam langkah sederhana shio anjing tersimpan harapan baik dan peluang rezeki yang semakin dekat."
+]
+},
+
+"SHIO HARIMAU":{
+img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20harimau.png",
+syair:[
+"Harimau perkasa membawa keberanian dan keberuntungan besar bagi yang tidak takut menghadapi tantangan.",
+"Langkah gagah shio harimau menjadi tanda datangnya rezeki dan peluang yang semakin terbuka.",
+"Shio harimau dikenal penuh semangat sehingga hoki sering datang di saat yang tidak terduga.",
+"Raungan harimau di malam hari dipercaya membawa kabar baik dan harapan baru.",
+"Harimau emas melambangkan kekuatan besar yang mampu menarik keberuntungan mendekat.",
+"Keberuntungan shio harimau hadir bagi mereka yang berani mengambil keputusan dengan yakin.",
+"Tatapan tajam sang harimau menjadi simbol kemenangan dan rezeki yang terus bertambah.",
+"Shio harimau membawa energi positif yang membuka jalan menuju kesuksesan dan kemakmuran.",
+"Harimau hitam melintas tenang membawa tanda bahwa hoki besar sedang mendekat perlahan.",
+"Dalam keberanian shio harimau tersimpan kekuatan besar yang membawa keberhasilan dan keberuntungan."
+]
+},
+
+"SHIO AYAM":{
+img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20ayam.png",
+syair:[
+"Ayam jantan berkokok di pagi hari membawa tanda keberuntungan dan harapan baru yang cerah.",
+"Shio ayam dikenal penuh semangat sehingga rezeki sering datang di waktu yang tidak terduga.",
+"Langkah pasti sang ayam menjadi pertanda baik untuk datangnya hoki dan peluang besar.",
+"Ayam emas melambangkan kemakmuran serta keberhasilan yang semakin dekat menghampiri.",
+"Keberuntungan shio ayam hadir bagi mereka yang tetap percaya diri dan tidak mudah menyerah.",
+"Suara ayam di waktu subuh dipercaya membawa energi positif dan jalan rezeki yang terbuka.",
+"Shio ayam memiliki keberanian besar yang mampu menarik hoki dan keberhasilan sekaligus.",
+"Ayam putih datang membawa harapan baik serta kabar gembira untuk perjalanan ke depan.",
+"Dalam semangat shio ayam tersimpan kekuatan besar untuk meraih kemenangan dan kemakmuran.",
+"Ayam perkasa melangkah yakin membawa pertanda bahwa keberuntungan besar sedang mendekat."
+]
+},
+
+"SHIO TIKUS":{
+img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20tikus.png",
+syair:[
+"Tikus kecil bergerak lincah membawa keberuntungan bagi siapa saja yang cerdas melihat peluang.",
+"Shio tikus dikenal penuh kecerdikan sehingga rezeki sering datang tanpa disangka.",
+"Langkah cepat sang tikus menjadi pertanda baik bahwa hoki besar sedang mendekat.",
+"Tikus putih melambangkan harapan baru dan jalan keberhasilan yang mulai terbuka.",
+"Keberuntungan shio tikus hadir bagi mereka yang berani mengambil kesempatan dengan tepat.",
+"Gerakan diam sang tikus membawa tanda bahwa rezeki besar datang perlahan namun pasti.",
+"Shio tikus memiliki energi cerdas yang mampu membuka pintu hoki dan kemakmuran.",
+"Tikus malam berjalan tenang membawa kabar baik untuk hati yang tetap percaya diri.",
+"Dalam kecerdikan shio tikus tersimpan peluang besar menuju keberhasilan dan kemenangan.",
+"Tikus emas datang membawa harapan cerah serta keberuntungan yang semakin dekat menghampiri."
+]
+},
+
+"SHIO MONYET":{
+img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20monyet.png",
+syair:[
+"Monyet cerdik membawa keberuntungan besar bagi siapa saja yang pandai memanfaatkan peluang.",
+"Shio monyet dikenal penuh kecerdasan sehingga hoki sering datang di saat yang tidak terduga.",
+"Langkah lincah sang monyet menjadi tanda bahwa rezeki besar sedang mendekat perlahan.",
+"Monyet emas melambangkan keberhasilan dan jalan kemakmuran yang semakin terbuka.",
+"Keberuntungan shio monyet hadir bagi mereka yang tetap percaya diri dan tidak mudah menyerah.",
+"Gerakan cepat sang monyet membawa pertanda baik untuk datangnya peluang baru.",
+"Shio monyet memiliki energi positif yang mampu menarik hoki dan keberhasilan sekaligus.",
+"Monyet putih datang membawa harapan baik serta kabar gembira yang tak terduga.",
+"Dalam kecerdikan shio monyet tersimpan kekuatan besar untuk meraih kemenangan dan rezeki.",
+"Monyet perkasa melangkah penuh keyakinan membawa keberuntungan yang semakin dekat menghampiri."
+]
+},
+
+"SHIO KELINCI":{
+img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20kelinci.png",
+syair:[
+"Kelinci putih melompat membawa keberuntungan dan harapan baru yang penuh kebahagiaan.",
+"Shio kelinci dikenal lembut namun menyimpan hoki besar bagi yang tetap percaya diri.",
+"Langkah tenang sang kelinci menjadi pertanda baik bahwa rezeki sedang mendekat perlahan.",
+"Kelinci emas melambangkan kemakmuran dan peluang besar yang mulai terbuka lebar.",
+"Keberuntungan shio kelinci hadir bagi mereka yang sabar dan tidak mudah menyerah.",
+"Gerakan lincah sang kelinci membawa tanda datangnya kabar baik dan hoki baru.",
+"Shio kelinci memiliki energi damai yang mampu menarik keberhasilan dan rezeki.",
+"Kelinci malam berjalan pelan membawa harapan indah untuk perjalanan menuju kemenangan.",
+"Dalam kelembutan shio kelinci tersimpan kekuatan besar untuk meraih keberuntungan.",
+"Kelinci pembawa hoki datang membawa cahaya baru dan peluang yang semakin dekat."
+]
+},
+
+"SHIO KAMBING":{
+img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20kambing.png",
+syair:[
+"Kambing gunung melangkah tenang membawa keberuntungan bagi hati yang penuh kesabaran.",
+"Shio kambing dikenal lembut namun memiliki jalan rezeki yang luas dan penuh harapan.",
+"Langkah pasti sang kambing menjadi pertanda baik bahwa hoki sedang mendekat perlahan.",
+"Kambing putih melambangkan kedamaian serta keberuntungan yang datang di waktu yang tepat.",
+"Keberuntungan shio kambing hadir bagi mereka yang tetap yakin dan tidak mudah menyerah.",
+"Shio kambing membawa energi positif yang membuka jalan menuju keberhasilan dan kemakmuran.",
+"Kambing emas datang membawa kabar baik serta peluang besar yang mulai terbuka.",
+"Dalam ketenangan shio kambing tersimpan kekuatan besar untuk menarik rezeki dan hoki.",
+"Suara lembut sang kambing menjadi tanda hadirnya harapan baru dan keberuntungan.",
+"Shio kambing melangkah penuh keyakinan membawa rezeki yang semakin dekat menghampiri."
+]
+},
+
+"SHIO BABI":{
+img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20babi.png",
+syair:[
+"Babi emas datang membawa keberuntungan besar bagi siapa saja yang tetap percaya pada harapan.",
+"Langkah tenang shio babi menjadi tanda rezeki perlahan mendekat tanpa disadari.",
+"Shio babi dikenal penuh keberuntungan, terutama bagi hati yang sabar dan tidak mudah menyerah.",
+"Malam yang sunyi membawa bisikan hoki untuk shio babi yang sedang menanti kesempatan.",
+"Babi putih melambangkan kemakmuran dan jalan rezeki yang terbuka semakin lebar.",
+"Keberuntungan shio babi sering datang dari hal sederhana yang sebelumnya tidak pernah diduga.",
+"Senyum dan keyakinan menjadi kunci datangnya hoki besar bagi pemilik shio babi.",
+"Shio babi membawa energi positif yang membuat perjalanan menuju keberhasilan terasa lebih mudah.",
+"Rezeki yang datang untuk shio babi ibarat air mengalir deras tanpa hambatan.",
+"Babi keberuntungan hadir membawa harapan baru serta peluang besar yang siap menghampiri."
+]
+},
+
+"SHIO KERBAU":{
+img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20kerbau.png",
+syair:[
+"Kerbau kuat melangkah pelan, rezeki datang bagi yang sabar dan tidak mudah menyerah.",
+"Di balik tenangnya sang kerbau, tersimpan keberuntungan besar yang siap menghampiri.",
+"Kerbau di sawah membawa harapan, siapa tekun akan menemukan jalan kemenangan.",
+"Langkah pasti sang kerbau menjadi tanda bahwa hoki besar sedang mendekat perlahan.",
+"Kerbau hitam menembus malam, membawa kabar baik untuk hati yang tetap tenang.",
+"Rezeki ibarat kerbau kuat, tidak datang tergesa namun hasilnya penuh manfaat.",
+"Kerbau tua penjaga ladang memberi pesan agar tetap yakin pada usaha sendiri.",
+"Angin pagi dan langkah kerbau menjadi pertanda baik untuk keberuntungan hari ini.",
+"Kerbau perkasa membawa semangat baru, membuka jalan rezeki tanpa ragu.",
+"Dalam diam sang kerbau tersimpan kekuatan besar yang membawa hoki dan keberhasilan."
+]
+},
+
+"SHIO KUDA":{
+img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20kuda.png",
+syair:[
+"Kuda perkasa berlari membawa keberuntungan besar bagi siapa saja yang berani melangkah maju.",
+"Shio kuda dikenal penuh semangat sehingga rezeki sering datang di waktu yang tidak terduga.",
+"Langkah cepat sang kuda menjadi pertanda baik bahwa hoki besar sedang mendekat.",
+"Kuda putih melambangkan harapan baru dan jalan menuju keberhasilan yang semakin terbuka.",
+"Keberuntungan shio kuda hadir bagi mereka yang percaya diri dan tidak mudah menyerah.",
+"Derap langkah sang kuda membawa energi positif dan peluang besar menuju kemenangan.",
+"Shio kuda memiliki kekuatan besar untuk menarik rezeki dan keberuntungan sekaligus.",
+"Kuda emas datang membawa kabar baik serta harapan cerah untuk masa depan.",
+"Dalam semangat shio kuda tersimpan keberanian besar untuk meraih kesuksesan dan hoki.",
+"Kuda malam berlari tenang membawa pertanda bahwa keberuntungan besar semakin dekat menghampiri."
+]
+},
+
+"SHIO NAGA":{
+img:"https://raw.githubusercontent.com/wfrans990/syair-tvtoto/main/shio%20nagaa.png",
+syair:[
+"Naga emas terbang tinggi membawa keberuntungan besar dan harapan yang semakin terang.",
+"Shio naga dikenal penuh wibawa sehingga rezeki sering datang di saat yang tidak terduga.",
+"Langkah kuat sang naga menjadi pertanda baik bahwa hoki besar sedang mendekat perlahan.",
+"Naga merah melambangkan kekuatan, keberanian, dan jalan menuju kemakmuran yang terbuka.",
+"Keberuntungan shio naga hadir bagi mereka yang yakin pada usaha dan tidak mudah menyerah.",
+"Shio naga membawa energi besar yang mampu menarik rezeki dan keberhasilan sekaligus.",
+"Naga langit datang membawa kabar baik serta peluang emas yang mulai terlihat jelas.",
+"Dalam kekuatan shio naga tersimpan harapan besar untuk meraih kemenangan dan kemakmuran.",
+"Naga hitam melintas di malam hari membawa tanda datangnya hoki dan peluang baru.",
+"Shio naga melangkah penuh keyakinan membawa keberuntungan besar yang semakin dekat menghampiri."
+]
+}
+
+};
+
+/* ================= OPTION SHIO ================= */
+
+const shioSelect=document.getElementById("shioSelect");
+
+Object.keys(shioData).forEach(shio=>{
+
+const option=document.createElement("option");
+
+option.value=shio;
+option.innerText=shio;
+
+shioSelect.appendChild(option);
+
+});
+
+/* ================= DATE ================= */
+
+function updateDate(){
+
+const now=new Date();
+
+const bulan=[
+"JANUARI","FEBRUARI","MARET","APRIL","MEI","JUNI",
+"JULI","AGUSTUS","SEPTEMBER","OKTOBER","NOVEMBER","DESEMBER"
+];
+
+const tanggal=
+now.getDate()+" "+
+bulan[now.getMonth()]+" "+
+now.getFullYear();
+
+document.getElementById("todayDate").innerText=tanggal;
+
+}
+
+/* ================= RANDOM ================= */
+
+function randomNumber(length){
+
+let result='';
+
+for(let i=0;i<length;i++){
+
+result += Math.floor(Math.random()*10);
+
+}
+
+return result;
+
+}
+
+function randomColok(){
+
+let arr=[];
+
+while(arr.length<4){
+
+let n=Math.floor(Math.random()*10);
+
+if(!arr.includes(n)){
+
+arr.push(n);
+
+}
+
+}
+
+return arr;
+
+}
+
+/* ================= GENERATE ================= */
+
+function generateAll(){
+
+const market=document.getElementById("marketSelect").value;
+
+const shioKeys=Object.keys(shioData);
+
+const randomShio=
+shioKeys[Math.floor(Math.random()*shioKeys.length)];
+
+document.getElementById("shioSelect").value=randomShio;
+
+document.getElementById("marketLogo").src=
+marketLogoData[market];
+
+document.getElementById("shioName").innerText=
+randomShio;
+
+document.getElementById("shioImage").src=
+shioData[randomShio].img;
+
+document.getElementById("bbfsBox").innerText=
+randomNumber(7);
+
+const angka=randomColok();
+
+document.getElementById("colokBox").innerHTML=`
+<span>${angka[0]}</span>
+<span>${angka[1]}</span>
+<span>${angka[2]}</span>
+<span>${angka[3]}</span>
+`;
+
+const angkaMain=[];
+
+while(angkaMain.length<5){
+
+let n=Math.floor(Math.random()*10);
+
+if(!angkaMain.includes(n)){
+
+angkaMain.push(n);
+
+}
+
+}
+
+document.getElementById("angkaMain").innerText=
+angkaMain.join(" - ");
+
+const syairList=shioData[randomShio].syair;
+
+const syairRandom=
+syairList[Math.floor(Math.random()*syairList.length)];
+
+document.getElementById("syairText").innerText=
+syairRandom;
+
+}
+
+/* ================= ACAK SYAIR ================= */
+
+function randomSyairOnly(){
+
+const currentShio =
+document.getElementById("shioSelect").value;
+
+const syairList =
+shioData[currentShio].syair;
+
+const syairRandom =
+syairList[Math.floor(Math.random()*syairList.length)];
+
+document.getElementById("syairText").innerText =
+syairRandom;
+
+}
+
+/* ================= DOWNLOAD ================= */
+
+async function downloadImage(){
+
+const preview=document.getElementById("capture");
+
+const oldTransform=preview.style.transform;
+const oldMargin=preview.style.marginBottom;
+
+preview.style.transform="scale(1)";
+preview.style.marginBottom="0px";
+
+await new Promise(resolve=>setTimeout(resolve,300));
+
+try{
+
+const canvas=await html2canvas(preview,{
+
+useCORS:true,
+allowTaint:false,
+backgroundColor:null,
+logging:false,
+
+scale:2,
+
+width:1254,
+height:1254
+
+});
+
+preview.style.transform=oldTransform;
+preview.style.marginBottom=oldMargin;
+
+const shioName=
+document.getElementById("shioName")
+.innerText
+.replace("SHIO ","Shio ");
+
+const now=new Date();
+
+const bulan=[
+"Januari",
+"Februari",
+"Maret",
+"April",
+"Mei",
+"Juni",
+"Juli",
+"Agustus",
+"September",
+"Oktober",
+"November",
+"Desember"
+];
+
+const tanggal=
+now.getDate()+" "+
+bulan[now.getMonth()];
+
+const fileName=
+`${shioName} ${tanggal}.png`;
+
+const link=document.createElement("a");
+
+link.download=fileName;
+
+link.href=canvas.toDataURL("image/png");
+
+link.click();
+
+}catch(err){
+
+alert("Gagal download gambar");
+
+console.log(err);
+
+}
+
+}
+
+/* ================= START ================= */
+
+updateDate();
+
+switchBrand('tvtoto');
+
+updateMarketOnly();
+
+generateAll();
+
+function updateMarketOnly(){
+
+const market=document.getElementById("marketSelect").value;
+
+document.getElementById("marketLogo").src=
+marketLogoData[market];
+
+}
+
+document.getElementById("marketSelect")
+.addEventListener("change",function(){
+
+const market=document.getElementById("marketSelect").value;
+
+document.getElementById("marketLogo").src=
+marketLogoData[market];
+
+});
+
+/* ================= PILIH SHIO ================= */
+
+document.getElementById("shioSelect")
+.addEventListener("change",function(){
+
+const selectedShio=this.value;
+
+document.getElementById("shioName").innerText=
+selectedShio;
+
+document.getElementById("shioImage").src=
+shioData[selectedShio].img;
+
+const syairList=
+shioData[selectedShio].syair;
+
+const syairRandom=
+syairList[Math.floor(Math.random()*syairList.length)];
+
+document.getElementById("syairText").innerText=
+syairRandom;
+
+
+
+});
+
+</script>
+
+</body>
+</html>
